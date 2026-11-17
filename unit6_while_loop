@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://fgb.eckartzitzler.ch/20/Unit09LogoSkeleton.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Graphics Basics</title>
+</head>
+<body>
+
+&lt;<canvas id="myCanvas" width="1000" height="1000" style="border:1px solid #d3d3d3;">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+
+var can = document.getElementById("myCanvas");
+var ctx = can.getContext("2d");
+
+var turtleX = 500;
+var turtleY = 500;
+var turtleAngle = 90;
+var isPenDown = true;
+
+function home() {
+	turtleX = 500;
+	turtleY = 500;
+	turtleAngle = 0;
+}
+
+function forward(distance) {
+	var xnew, ynew;
+	
+	xnew = turtleX - (distance * Math.sin(turtleAngle * Math.PI / 180));
+	ynew = turtleY - (distance * Math.cos(turtleAngle * Math.PI / 180));
+	if (isPenDown) {
+		ctx.beginPath();
+		ctx.moveTo(turtleX, turtleY);
+		ctx.lineTo(xnew, ynew);
+		ctx.stroke();
+	}
+	turtleX = xnew;
+	turtleY = ynew;
+}
+
+function left(angle) {
+	turtleAngle = (turtleAngle + angle) % 360;
+}
+
+function right(angle) {
+	turtleAngle = (turtleAngle - angle) % 360;
+}
+
+function penDown() {
+	isPenDown = true;
+}
+
+function penUp() {
+	isPenDown = false;	
+}
+
+home();
+penDown();
+
+x = 0;
+turtle_length = 100;
+while (x < 3){
+	forward(turtle_length);
+	left(90);
+	x++; // x = x + 1   x+=1
+}
+
+
+</script>
+
+
+</body></html>

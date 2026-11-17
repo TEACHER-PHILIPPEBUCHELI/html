@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://fgb.eckartzitzler.ch/20/Unit09LogoSkeleton.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Graphics Basics</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1000" height="1000" style="border:1px solid #d3d3d3;">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+function drawLines(xs, ys, lenx, leny, distx, disty, numOfLines) {  
+    var offsetx == 0;  
+    var offsety = 0  
+    while (numOfLines > 0) {  
+        ctx.beginPath();  
+        ctx.moveTo(xs + offsetx, ys + offsety);  
+        ctx.lineTo(xs + offsetx + lenx, ys + offsety + leny);  
+        ctx.stroke ();  
+        offsetx = offsetx + distx;  
+        offsety = offsety + disty;  
+        numOfLines = numOfLines - 1 -;  
+    }
+}
+
+drawLines(100, 100, 100, 0, 0, 10, 11);  
+drawLines(100, 100, 0, 100, 10, 0, 11);
+
+</script>
+
+
+</body></html>
